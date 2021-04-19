@@ -1,79 +1,36 @@
+import 'package:kata_rover/position.dart';
+import 'package:kata_rover/vector.dart';
+
+enum Command { FORWARD, BACKWARD, LEFT, RIGHT }
+
 class Rover {
-  Rover({required this.position, required this.orientation});
+  Rover({required this.position, required this.vector});
 
   Position position;
-  Orientation orientation;
+  Vector vector;
 
-  void move(Move move) {
+  void execute(Command move) {
     switch (move) {
-      case Move.FORWARD:
-        _moveForward();
+      case Command.FORWARD:
+        _move(vector);
         break;
-      case Move.BACKWARD:
-        _moveBackward();
+      case Command.BACKWARD:
+        _move(vector.reversed);
         break;
-    }
-  }
-
-  void _moveForward() {
-    switch (orientation) {
-      case Orientation.NORTH:
-        position = Position(x: position.x, y: position.y - 1);
+      case Command.LEFT:
+        _rotate(-90);
         break;
-      case Orientation.EAST:
-        position = Position(x: position.x + 1, y: position.y);
-        break;
-      case Orientation.SOUTH:
-        position = Position(x: position.x, y: position.y + 1);
-        break;
-      case Orientation.WEST:
-        position = Position(x: position.x - 1, y: position.y);
+      case Command.RIGHT:
+        _rotate(90);
         break;
     }
   }
 
-  void _moveBackward() {
-    switch (orientation) {
-      case Orientation.NORTH:
-        position = Position(x: position.x, y: position.y + 1);
-        break;
-      case Orientation.EAST:
-        position = Position(x: position.x - 1, y: position.y);
-        break;
-      case Orientation.SOUTH:
-        position = Position(x: position.x, y: position.y - 1);
-        break;
-      case Orientation.WEST:
-        position = Position(x: position.x + 1, y: position.y);
-        break;
-    }
-  }
-}
-
-enum Move { FORWARD, BACKWARD }
-
-enum Orientation { NORTH, EAST, SOUTH, WEST }
-
-class Position {
-  Position({required this.x, required this.y});
-  final int x;
-  final int y;
-
-  bool equals(Object position) {
-    return position is Position && position.x == x && position.y == y;
+  void _move(Vector vector) {
+    position = Position(x: position.x + vector.x, y: position.y + vector.y);
   }
 
-  @override
-  String toString() => '($x, $y)';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Position &&
-          runtimeType == other.runtimeType &&
-          x == other.x &&
-          y == other.y;
-
-  @override
-  int get hashCode => x.hashCode ^ y.hashCode;
+  void _rotate(int degrees) {
+    vector = vector.rotate(degrees);
+  }
 }
