@@ -1,13 +1,15 @@
+import 'package:kata_rover/plan.dart';
 import 'package:kata_rover/position.dart';
 import 'package:kata_rover/vector.dart';
 
 enum Command { FORWARD, BACKWARD, LEFT, RIGHT }
 
 class Rover {
-  Rover({required this.position, required this.vector});
+  Rover({required this.position, required this.vector, required this.plan});
 
   Position position;
   Vector vector;
+  Plan plan;
 
   void execute(Command move) {
     switch (move) {
@@ -27,7 +29,8 @@ class Rover {
   }
 
   void _move(Vector vector) {
-    position = Position(x: position.x + vector.x, y: position.y + vector.y);
+    position = plan
+        .locate(Position(x: position.x + vector.x, y: position.y + vector.y));
   }
 
   void _rotate(int degrees) {
