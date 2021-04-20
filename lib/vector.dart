@@ -7,8 +7,6 @@ class Vector {
   final int y;
 
   Vector rotate(int degrees) {
-    //𝑥2=cos𝛽𝑥1−sin𝛽𝑦1
-    //𝑦2=sin𝛽𝑥1+cos𝛽𝑦1
     final radians = degrees * pi / 180.0;
     return Vector(
         x: (cos(radians) * x - sin(radians) * y).toInt(),

@@ -29,8 +29,11 @@ class Rover {
   }
 
   void _move(Vector vector) {
-    position = plan
-        .locate(Position(x: position.x + vector.x, y: position.y + vector.y));
+    try {
+      final locatedPosition = plan
+          .locate(Position(x: position.x + vector.x, y: position.y + vector.y));
+      position = locatedPosition;
+    } on ObstacleException catch (_) {}
   }
 
   void _rotate(int degrees) {

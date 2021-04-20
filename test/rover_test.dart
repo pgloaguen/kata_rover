@@ -6,7 +6,9 @@ import 'package:test/test.dart';
 
 void main() {
   final plan = Plan(
-      minPosition: Position(x: 0, y: 0), maxPosition: Position(x: 10, y: 10));
+      minPosition: Position(x: 0, y: 0),
+      maxPosition: Position(x: 10, y: 10),
+      obstables: []);
   test('rover should start at the initial postion and orientation', () {
     final rover = Rover(
         position: Position(x: 1, y: 2),
@@ -182,5 +184,18 @@ void main() {
       rover.execute(Command.RIGHT);
       expect(rover.vector, equals(Orientation.NORTH.vector));
     });
+  });
+
+  test('when rover go to an obstacle stop the rover', () {
+    final rover = Rover(
+        position: Position(x: 1, y: 2),
+        vector: Orientation.SOUTH.vector,
+        plan: Plan(
+            minPosition: Position(x: 0, y: 0),
+            maxPosition: Position(x: 10, y: 10),
+            obstables: [Position(x: 1, y: 3)]));
+
+    rover.execute(Command.FORWARD);
+    expect(rover.position, equals(Position(x: 1, y: 2)));
   });
 }
