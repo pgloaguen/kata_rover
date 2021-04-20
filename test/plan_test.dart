@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('map is well initiated', () {
-    final plan = Plan(
+    final plan = const Plan(
         minPosition: Position(x: 0, y: 0),
         maxPosition: Position(x: 10, y: 9),
         obstables: []);
@@ -13,7 +13,7 @@ void main() {
   });
 
   test('map is spheric', () {
-    final plan = Plan(
+    final plan = const Plan(
         minPosition: Position(x: 0, y: 0),
         maxPosition: Position(x: 10, y: 9),
         obstables: []);
@@ -24,7 +24,7 @@ void main() {
   });
 
   test('map throw an error if an obstable is on the position', () {
-    final plan = Plan(
+    final plan = const Plan(
         minPosition: Position(x: 0, y: 0),
         maxPosition: Position(x: 10, y: 9),
         obstables: <Position>[

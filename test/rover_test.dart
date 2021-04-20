@@ -5,13 +5,13 @@ import 'package:kata_rover/rover.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final plan = Plan(
+  final plan = const Plan(
       minPosition: Position(x: 0, y: 0),
       maxPosition: Position(x: 10, y: 10),
       obstables: []);
   test('rover should start at the initial postion and orientation', () {
     final rover = Rover(
-        position: Position(x: 1, y: 2),
+        position: const Position(x: 1, y: 2),
         vector: Orientation.NORTH.vector,
         plan: plan);
 
@@ -22,7 +22,7 @@ void main() {
   group('Orientation NORTH', () {
     test('when move forward should move the rover up', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.NORTH.vector,
           plan: plan);
 
@@ -32,7 +32,7 @@ void main() {
 
     test('when move backward should move the rover down', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.NORTH.vector,
           plan: plan);
 
@@ -42,7 +42,7 @@ void main() {
 
     test('when move left should orientated to the WEST', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.NORTH.vector,
           plan: plan);
 
@@ -52,7 +52,7 @@ void main() {
 
     test('when move right should orientated to the EAST', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.NORTH.vector,
           plan: plan);
 
@@ -63,7 +63,7 @@ void main() {
   group('Orientation SOUTH', () {
     test('when move forward should move the rover down', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.SOUTH.vector,
           plan: plan);
 
@@ -73,7 +73,7 @@ void main() {
 
     test('when move backward should move the rover up', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.SOUTH.vector,
           plan: plan);
 
@@ -83,7 +83,7 @@ void main() {
 
     test('when move left should orientated to the EAST', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.SOUTH.vector,
           plan: plan);
 
@@ -93,7 +93,7 @@ void main() {
 
     test('when move right should orientated to the WEST', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.SOUTH.vector,
           plan: plan);
 
@@ -105,7 +105,7 @@ void main() {
   group('Orientation EAST', () {
     test('when move forward should move the rover right', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.EAST.vector,
           plan: plan);
 
@@ -115,7 +115,7 @@ void main() {
 
     test('when move backward should move the rover left', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.EAST.vector,
           plan: plan);
 
@@ -125,7 +125,7 @@ void main() {
 
     test('when move left should orientated to the NORTH', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.EAST.vector,
           plan: plan);
 
@@ -135,7 +135,7 @@ void main() {
 
     test('when move right should orientated to the SOUTH', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.EAST.vector,
           plan: plan);
 
@@ -147,7 +147,7 @@ void main() {
   group('Orientation WEST', () {
     test('when move forward should move the rover left', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.WEST.vector,
           plan: plan);
 
@@ -157,7 +157,7 @@ void main() {
 
     test('when move backward should move the rover right', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.WEST.vector,
           plan: plan);
 
@@ -167,7 +167,7 @@ void main() {
 
     test('when move left should orientated to the SOUTH', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.WEST.vector,
           plan: plan);
 
@@ -177,7 +177,7 @@ void main() {
 
     test('when move right should orientated to the NORTH', () {
       final rover = Rover(
-          position: Position(x: 1, y: 2),
+          position: const Position(x: 1, y: 2),
           vector: Orientation.WEST.vector,
           plan: plan);
 
@@ -190,7 +190,7 @@ void main() {
     final rover = Rover(
         position: Position(x: 1, y: 2),
         vector: Orientation.SOUTH.vector,
-        plan: Plan(
+        plan: const Plan(
             minPosition: Position(x: 0, y: 0),
             maxPosition: Position(x: 10, y: 10),
             obstables: [Position(x: 1, y: 3)]));

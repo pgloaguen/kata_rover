@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('Pen should be able to draw empty plan', () {
-    final plan = Plan(
+    final plan = const Plan(
         minPosition: Position(x: 0, y: 0),
         maxPosition: Position(x: 3, y: 2),
         obstables: [Position(x: 1, y: 1)]);
@@ -18,13 +18,13 @@ void main() {
   });
 
   test('Pen should be able to draw plan with rover', () {
-    final plan = Plan(
+    final plan = const Plan(
         minPosition: Position(x: 0, y: 0),
         maxPosition: Position(x: 3, y: 2),
         obstables: [Position(x: 1, y: 1)]);
 
     final rover = Rover(
-        position: Position(x: 1, y: 2),
+        position: const Position(x: 1, y: 2),
         vector: Orientation.NORTH.vector,
         plan: plan);
 
