@@ -1,7 +1,7 @@
 import 'position.dart';
 
 class Plan {
-  Plan(
+  const Plan(
       {required this.minPosition,
       required this.maxPosition,
       required this.obstables});

@@ -1,5 +1,5 @@
 class Position {
-  Position({required this.x, required this.y});
+  const Position({required this.x, required this.y});
   final int x;
   final int y;
 

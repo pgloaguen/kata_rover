@@ -1,7 +1,7 @@
 import 'dart:math';
 
 class Vector {
-  Vector({required this.x, required this.y});
+  const Vector({required this.x, required this.y});
   Vector get reversed => Vector(x: x * -1, y: y * -1);
   final int x;
   final int y;
